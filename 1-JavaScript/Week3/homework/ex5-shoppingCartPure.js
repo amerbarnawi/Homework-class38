@@ -16,9 +16,24 @@ it pure. Do the following:
 5. Confirm that you function passes the provided unit tests.
 ------------------------------------------------------------------------------*/
 // ! Function under test
-function addToShoppingCart(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+function addToShoppingCart(shoppingCartArray, addedGroceryItem) {
+  
+  const newShoppingCart = shoppingCartArray;
+
+  newShoppingCart.push(addedGroceryItem);
+
+  if (newShoppingCart.length > 3){
+
+    newShoppingCart.shift();
+  }
+
+  return newShoppingCart; // Amer:They did not ask about this step! but I saw the test code and I understood that they need an array as result.
 }
+
+/* Note please: I created the code here depending on the test, because they did not .. 
+ask about how many item in the shopping cart array (Argument array), ..
+maybe it is more than 3 or 5 or more, in this case , for example..
+I should creat a condition to make the new array only has 3 items ( the last three).*/
 
 // ! Test functions (plain vanilla JavaScript)
 function test1() {

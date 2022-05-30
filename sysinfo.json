@@ -1,0 +1,42 @@
+{
+  "node": "v16.15.0",
+  "system": {
+    "manufacturer": "LENOVO",
+    "model": "82B2"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Celeron® N4020",
+    "speed": 1.1
+  },
+  "memory": "4 GB",
+  "osInfo": {
+    "platform": "Windows",
+    "distro": "Microsoft Windows 11 Home",
+    "release": "10.0.22000"
+  },
+  "vscodeInfo": {
+    "version": "1.67.2",
+    "extensions": [
+      "aaron-bond.better-comments",
+      "ajhyndman.jslint",
+      "bierner.github-markdown-preview",
+      "bierner.markdown-checkbox",
+      "bierner.markdown-emoji",
+      "bierner.markdown-footnotes",
+      "bierner.markdown-mermaid",
+      "bierner.markdown-preview-github-styles",
+      "bierner.markdown-yaml-preamble",
+      "CoenraadS.bracket-pair-colorizer-2",
+      "DavidAnson.vscode-markdownlint",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "oderwat.indent-rainbow",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker",
+      "WallabyJs.quokka-vscode"
+    ],
+    "userSettings": {}
+  }
+}

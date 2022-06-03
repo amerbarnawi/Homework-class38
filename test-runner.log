@@ -287,3 +287,8 @@ Ran all test suites matching /ex2-mondaysWorth.test.js/i.
 2022-06-03 12:39:19 info: -------------------------------------------------
 2022-06-03 12:39:25 info: All unit tests passed.
 2022-06-03 12:39:36 info: All steps were completed successfully
+2022-06-03 01:30:14 info: -------------------------------------------------
+2022-06-03 01:30:14 info: >>> Running Unit Test `ex3-lemonAllergy.test` <<<
+2022-06-03 01:30:14 info: -------------------------------------------------
+2022-06-03 01:30:22 info: All unit tests passed.
+2022-06-03 01:30:32 info: All steps were completed successfully

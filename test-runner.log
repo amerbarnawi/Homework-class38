@@ -297,3 +297,21 @@ Ran all test suites matching /ex2-mondaysWorth.test.js/i.
 2022-06-03 05:23:29 info: ------------------------------------------
 2022-06-03 05:23:37 info: All unit tests passed.
 2022-06-03 05:23:48 info: All steps were completed successfully
+2022-06-03 08:23:45 info: --------------------------------------
+2022-06-03 08:23:45 info: >>> Running Unit Test `ex5-wallet` <<<
+2022-06-03 08:23:45 info: --------------------------------------
+2022-06-03 08:23:54 error: *** Unit Test Error Report ***
+
+✕ wallet q2: What is in the Call Stack, from top to bottom?
+✕ wallet q4: What is displayed in the console?
+
+
+Command failed: npx jest ex5-wallet.test.js --colors --reporters="C:\Users\barna_fk7wkot\Desktop\HYF\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-06-03 08:29:01 info: --------------------------------------
+2022-06-03 08:29:01 info: >>> Running Unit Test `ex5-wallet` <<<
+2022-06-03 08:29:01 info: --------------------------------------
+2022-06-03 08:29:07 info: All unit tests passed.
+2022-06-03 08:29:18 info: All steps were completed successfully

@@ -205,3 +205,8 @@ ex6-totalCost.js
 2022-05-30 11:59:57 info: ------------------------------------------------
 2022-05-30 11:59:57 warn: A unit test file was not provided.
 2022-05-31 12:00:07 info: All steps were completed successfully
+2022-06-03 11:47:00 info: ------------------------------------------------------
+2022-06-03 11:47:00 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2022-06-03 11:47:00 info: ------------------------------------------------------
+2022-06-03 11:47:09 info: All unit tests passed.
+2022-06-03 11:47:19 info: All steps were completed successfully

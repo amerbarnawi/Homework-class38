@@ -18,7 +18,7 @@ it pure. Do the following:
 // ! Function under test
 function addToShoppingCart(shoppingCartArray, addedGroceryItem) {
   
-  const newShoppingCart = shoppingCartArray;
+  const newShoppingCart = [...shoppingCartArray];
 
   newShoppingCart.push(addedGroceryItem);
 

@@ -31,7 +31,7 @@ function addToShoppingCart(groceryItem) {
   
     if (shoppingCart.length > 3) { 
   
-    shoppingCart.shift();
+       shoppingCart.shift();
   
     }
   }

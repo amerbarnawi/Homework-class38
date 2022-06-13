@@ -1,1 +1,11 @@
 /* Write your style here */
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+h1 {
+  margin-left: 10px;
+  margin-bottom: 30px;
+}

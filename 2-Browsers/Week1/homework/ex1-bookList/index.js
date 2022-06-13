@@ -43,22 +43,13 @@ function createBookList(books) {
     }
 
     if (book.title === 'The Design of Everyday Things') {
-      image.setAttribute(
-        'src',
-        'https://productnotes.com/uploads/default/original/1X/ddbda1150301e89cdf0119d84f2a7fb8930beffb.png'
-      );
+      image.setAttribute('src', './assets/the_design_of_everyday_things.jpg');
       image.style.width = '200px';
     } else if (book.title === 'The Most Human Human') {
-      image.setAttribute(
-        'src',
-        'https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg'
-      );
+      image.setAttribute('src', './assets/the_most_human_human.jpg');
       image.style.width = '200px';
     } else if (book.title === 'The Pragmatic Programmer') {
-      image.setAttribute(
-        'src',
-        'https://media.s-bol.com/mLB3V4PA12n/550x690.jpg'
-      );
+      image.setAttribute('src', './assets/the_pragmatic_programmer.jpg');
       image.style.width = '200px';
     }
 

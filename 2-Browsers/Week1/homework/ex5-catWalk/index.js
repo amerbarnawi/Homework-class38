@@ -1,4 +1,9 @@
 'use strict';
+
+// const { Body } = require('node-fetch');
+
+// const { capitalize } = require('lodash');
+
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Browsers/Week1#exercise-5-the-cat-walk
 
@@ -21,8 +26,44 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 
    https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
 -----------------------------------------------------------------------------*/
+const catImage = document.querySelector('img');
+const catImageWidth = catImage.width;
+let leftDistance = 0;
+let wait = false;
+const walkImage = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+const danceImage =
+  'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif';
+
 function catWalk() {
-  // TODO complete this function
+  const centerOfImagePosition = leftDistance + catImageWidth / 2;
+  const windowCenter = window.innerWidth / 2;
+
+  if (leftDistance + catImageWidth < window.innerWidth) {
+    catImage.style.left = `${leftDistance}px`;
+
+    if (
+      centerOfImagePosition >= windowCenter - 5 &&
+      centerOfImagePosition <= windowCenter + 5 &&
+      wait === false
+    ) {
+      catImage.src = danceImage;
+      wait = true;
+
+      setTimeout(() => {
+        catImage.src = walkImage;
+      }, 5000);
+    }
+
+    if (catImage.src === walkImage) {
+      leftDistance += 10;
+    }
+  } else {
+    // The end of the screen.
+    leftDistance = 0;
+    wait = false;
+  }
 }
 
-// TODO execute `catWalk` when the browser has completed loading the page
+window.addEventListener('load', function () {
+  setInterval(catWalk, 50);
+});

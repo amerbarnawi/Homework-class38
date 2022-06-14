@@ -8,15 +8,22 @@ Refactored from ES6 Class syntax to regular functions
 const CELL_SIZE = 10;
 const NUM_COLUMNS = 75;
 const NUM_ROWS = 40;
+let opacity = 0;
+let lifeTime = 0;
 
 // Create a cell with the given coordinates and randomly assign its begin state:
 // life or death
 function createCell(x, y) {
   const alive = Math.random() > 0.5;
+  lifeTime = 0;
+  if (alive === true) {
+    lifeTime = 1;
+  }
   return {
     x,
     y,
     alive,
+    lifeTime,
   };
 }
 
@@ -56,7 +63,23 @@ function createGame(context, numRows, numColumns) {
 
     if (cell.alive) {
       // Draw living cell inside background
-      context.fillStyle = `rgb(24, 215, 236)`;
+      switch (cell.lifeTime) {
+        case 1:
+          opacity = 0.25;
+          break;
+        case 2:
+          opacity = 0.5;
+          break;
+        case 3:
+          opacity = 0.75;
+          break;
+        default:
+          opacity = 1;
+          break;
+      }
+
+      context.fillStyle = `rgba(24, 215, 236, ${opacity})`;
+
       context.fillRect(
         cell.x * CELL_SIZE + 1,
         cell.y * CELL_SIZE + 1,
@@ -102,12 +125,23 @@ function createGame(context, numRows, numColumns) {
       if (numAlive === 2) {
         // Living cell remains living, dead cell remains dead
         cell.nextAlive = cell.alive;
+        if (cell.lifeTime >= 1) {
+          cell.lifeTime = cell.lifeTime + 1;
+        } else {
+          cell.lifeTime = 0;
+        }
       } else if (numAlive === 3) {
         // Dead cell becomes living, living cell remains living
         cell.nextAlive = true;
+        if (cell.lifeTime >= 1) {
+          cell.lifeTime = cell.lifeTime + 1;
+        } else {
+          cell.lifeTime = 1;
+        }
       } else {
         // Living cell dies, dead cell remains dead
         cell.nextAlive = false;
+        cell.lifeTime = 0;
       }
     });
 

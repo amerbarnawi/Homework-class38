@@ -27,9 +27,9 @@ exercise file.
 const rollDie = require('../../helpers/pokerDiceRoller');
 
 function rollDice() {
-  // TODO Refactor this function
   const dice = [1, 2, 3, 4, 5];
-  return rollDie(1);
+  const promisesArray = dice.map((die) => rollDie(die));
+  return Promise.all(promisesArray);
 }
 
 function main() {
@@ -43,3 +43,24 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 module.exports = rollDice;
+
+/* 
+I can see that: 
+In the case of a rejected promise, dice that have not yet finished their roll continue to do so.
+
+My Explanation:
+===============
+In case we used (Promise.all(PromisesArray)), 
+We will return an array of promises by calling the function (rollDice).
+
+When we call the function (main),
+It will check all the promises, if all of them are (resolved) then I can see the (resolve value).
+If one of them is ( rejected ), then I will see which one is rejected and I will not see the (resolved value array) anymore.
+
+When I use Promise.all(promisesArray).catch(), it will return a rejected value (for the first one which rejected),
+but does not care about the rest ( rejected or resolved ).
+
+But that does not mean the function (rollDie) will stop working for the die which not finished rolling yet,
+Because of this is an ( Asynchronous) operation and the promises are not related to each other.
+
+*/

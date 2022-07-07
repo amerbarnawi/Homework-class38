@@ -1,1 +1,24 @@
 /* add your styling here */
+
+.select-pokemon {
+  font-size: 25px;
+  background-color: rgb(208, 205, 205);
+  margin: 25px;
+  display: block;
+}
+
+.button {
+  width: 200px;
+  height: 50px;
+  display: block;
+  margin: 25px;
+  font-size: 20px;
+}
+
+.button:hover {
+  background-color: yellow;
+}
+
+.pokemon-image {
+  width: 200px;
+}

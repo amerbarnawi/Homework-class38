@@ -15,14 +15,18 @@ const rollDie = require('../../helpers/pokerDiceRoller');
 
 function rollDice() {
   const dice = [1, 2, 3, 4, 5];
-  // TODO complete this function; use Promise.race() and rollDie()
+  const promisesArray = dice.map((dice) => rollDie(dice));
+  return Promise.race(promisesArray);
 }
 
 // Refactor this function to use async/await and try/catch
-function main() {
-  rollDice()
-    .then((results) => console.log('Resolved!', results))
-    .catch((error) => console.log('Rejected!', error.message));
+async function main() {
+  try {
+    const results = await rollDice();
+    console.log('Resolved!', results);
+  } catch (error) {
+    console.log('Rejected!', error.message);
+  }
 }
 
 // ! Do not change or remove the code below
@@ -30,3 +34,18 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 module.exports = rollDice;
+
+/*
+
+I observe that some dice continue rolling for some undetermined time ..
+ after the promise returned by Promise.race() resolves.
+
+ Explanation:
+ ============
+The (Promise.race()) method returns the first promise in the promises array that is resolved or rejected (which settled first),
+ but other promises will continue until they are also settled.
+
+When using the method (Promise.race()), 
+this does not mean that the promises are related to each other, they work independently, 
+and if one is settled it does not mean that the others will.
+*/

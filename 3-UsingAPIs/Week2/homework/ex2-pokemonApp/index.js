@@ -47,6 +47,7 @@ function addOptions(pokemonsData) {
   pokemonsData.forEach((pokemon) => {
     const option = document.createElement('option');
     option.textContent = pokemon.name;
+    option.value = pokemon.url;
     selectElement.appendChild(option);
   });
 }
@@ -57,16 +58,16 @@ async function fetchData(url) {
     const jsonData = await responseData.json();
     return jsonData;
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 
 async function fetchAndPopulatePokemons(url) {
-  const pokemonsData = await fetchData(url);
   const button = document.querySelector('.button');
   const selectElement = document.querySelector('.select-pokemon');
 
   try {
+    const pokemonsData = await fetchData(url);
     button.addEventListener('click', () => {
       addOptions(pokemonsData.results);
 
@@ -75,23 +76,21 @@ async function fetchAndPopulatePokemons(url) {
       });
     });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 
 async function fetchImage(event) {
   const pokemonImage = document.querySelector('.pokemon-image');
-  const selectedPokemon = event.target.value;
+  const selectedPokemonURL = event.target.value;
 
   try {
-    const selectedPokemonURL = `https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`;
-
     const selectedPokemonData = await fetchData(selectedPokemonURL);
 
     pokemonImage.src = selectedPokemonData.sprites.front_default;
-    pokemonImage.alt = `Pokemon ${selectedPokemon} Image`;
+    pokemonImage.alt = `Pokemon ${selectedPokemonData.name} Image`;
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 

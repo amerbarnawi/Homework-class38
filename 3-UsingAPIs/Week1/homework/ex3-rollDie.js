@@ -45,8 +45,8 @@ function rollDie() {
 
 function main() {
   rollDie()
-    .then((resolvedValue) =>
-      console.log(`Success! Die settled on ${resolvedValue}.`)
+    .then((dieValue) =>
+      console.log(`Success! Die settled on ${dieValue}.`)
     )
     .catch((error) => console.log(error.message));
 }

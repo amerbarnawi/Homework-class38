@@ -22,8 +22,8 @@ const getAnonName = (firstName) => {
 
 function main() {
   getAnonName('John')
-    .then((resolvedValue) => console.log(resolvedValue))
-    .catch((rejectedValue) => console.log(rejectedValue));
+    .then((fullName) => console.log(fullName))
+    .catch((error) => console.log(error.message));
 }
 
 // ! Do not change or remove the code below

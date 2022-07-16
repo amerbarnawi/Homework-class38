@@ -60,6 +60,7 @@ async function fetchData(url) {
     return jsonData;
   } catch (error) {
     console.log(error.message);
+    throw error;
   }
 }
 
@@ -105,4 +106,4 @@ function main() {
   fetchAndPopulatePokemons(url);
 }
 
-window.addEventListener('load', main());
+window.addEventListener('load', main);

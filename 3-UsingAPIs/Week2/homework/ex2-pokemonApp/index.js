@@ -59,6 +59,7 @@ async function fetchData(url) {
     return jsonData;
   } catch (error) {
     console.log(error.message);
+    throw errror;
   }
 }
 

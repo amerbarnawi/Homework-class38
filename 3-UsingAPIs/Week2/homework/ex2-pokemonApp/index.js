@@ -102,4 +102,4 @@ function main() {
   fetchAndPopulatePokemons(url);
 }
 
-window.addEventListener('load', main());
+window.addEventListener('load', main);

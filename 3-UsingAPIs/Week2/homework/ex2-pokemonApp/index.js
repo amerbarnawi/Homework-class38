@@ -26,7 +26,7 @@ parameters and return values to pass data back and forth.
 function createElements() {
   const button = document.createElement('button');
   button.className = 'button';
-  button.textContent = 'Show Pokemons';
+  button.textContent = 'Get Pokemons';
   button.type = 'button';
   document.body.appendChild(button);
 
@@ -43,6 +43,7 @@ function createElements() {
 
 function addOptions(pokemonsData) {
   const selectElement = document.querySelector('.select-pokemon');
+  selectElement.innerHTML = "";
 
   pokemonsData.forEach((pokemon) => {
     const option = document.createElement('option');
@@ -67,8 +68,10 @@ async function fetchAndPopulatePokemons(url) {
   const selectElement = document.querySelector('.select-pokemon');
 
   try {
-    const pokemonsData = await fetchData(url);
-    button.addEventListener('click', () => {
+    
+    button.addEventListener('click', async() => {
+      const pokemonsData = await fetchData(url);
+
       addOptions(pokemonsData.results);
 
       selectElement.addEventListener('change', (event) => {

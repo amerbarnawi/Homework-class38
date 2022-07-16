@@ -30,7 +30,7 @@ function renderImage(data) {
 
 function renderError(error) {
   const paragraph = document.createElement('p');
-  paragraph.textContent = error;
+  paragraph.textContent = error.message;
   document.body.appendChild(paragraph);
   console.log(error);
 }

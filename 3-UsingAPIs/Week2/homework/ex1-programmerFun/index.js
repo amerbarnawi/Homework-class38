@@ -22,6 +22,8 @@ async function requestData(url) {
     if (response.ok){
       const jsonData = await response.json();
       return jsonData;
+    } else {
+      throw new Error ('HTTP error');
     }
 }
 

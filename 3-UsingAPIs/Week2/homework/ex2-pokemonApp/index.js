@@ -56,8 +56,8 @@ function addOptions(pokemonsData) {
 async function fetchData(url) {
   try {
     const responseData = await fetch(url);
-    const jsonData = await responseData.json();
-    return jsonData;
+    return responseData.json();
+    
   } catch (error) {
     console.log(error.message);
     throw error;
@@ -67,17 +67,20 @@ async function fetchData(url) {
 async function fetchAndPopulatePokemons(url) {
   const button = document.querySelector('.button');
   const selectElement = document.querySelector('.select-pokemon');
+  let getPokemons = false;
 
   try {
     
     button.addEventListener('click', async() => {
-      const pokemonsData = await fetchData(url);
+      if (!getPokemons) {
+        const pokemonsData = await fetchData(url);
+        addOptions(pokemonsData.results);
+        getPokemons = true;
+      }
+    });
 
-      addOptions(pokemonsData.results);
-
-      selectElement.addEventListener('change', (event) => {
-        fetchImage(event);
-      });
+    selectElement.addEventListener('change', (event) => {
+      fetchImage(event);
     });
   } catch (error) {
     console.log(error.message);

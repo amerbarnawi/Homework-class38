@@ -20,8 +20,7 @@ Full description at: https://github.com/HackYourFuture/Homework/blob/main/3-Usin
 async function requestData(url) {
     const response = await fetch(url);
     if (response.ok){
-      const jsonData = await response.json();
-      return jsonData;
+      return response.json();
     } else {
       throw new Error ('HTTP error');
     }
